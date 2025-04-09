@@ -77,6 +77,8 @@ body *{
   z-index: 1;
   left: 0;
   transform: translateY(-50%);
+
+  animation: slide-back .4s;
 }
 #switch span{
   display: block;
@@ -89,8 +91,11 @@ body *{
   border-radius: 9999px;
 }
 .light #switch button{
-  right: 0;
-  left: initial;
+  animation: slide-in .4s forwards;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--highlight-color);
 }
 
 /* LINKS */
@@ -148,7 +153,7 @@ footer{
   font-size: 14px;
 }
 
-/* Media Queries */
+/* Media Queries @ rules css*/
 @media(min-width: 700px){ /* De 700px para mais, faça isso */
   :root{
     --bg-url: url(./assets/bg-desktop.jpg);
@@ -156,5 +161,24 @@ footer{
 
   .light{
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* Animations */
+@keyframes slide-in{
+  from{
+    left: 0;
+  }
+  to{
+    left: 50%;
+  }
+}
+
+@keyframes slide-back{
+  from{
+    left: 50%;
+  }
+  to{
+    left: 0;
   }
 }
